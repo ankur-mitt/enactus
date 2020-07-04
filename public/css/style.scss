@@ -1,0 +1,436 @@
+// changing default sass variables
+$font-family-base: "IBM Plex Serif",
+serif;
+$enable-gradients: true;
+$primary: #27496d;
+$secondary: #00909e;
+$dark: #142850;
+$light: #dae1e7;
+$navbar-light-color: #dae1e7;
+
+// import default bootstrap.scss
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+// navbar section
+.navbar {
+    padding-top: 0;
+}
+
+.navbar-brand {
+    padding-top: 0;
+
+    img {
+        filter: brightness(0.95);
+
+        &:hover {
+            filter: brightness(1.15);
+        }
+    }
+}
+
+.nav-link {
+    margin-top: 0.5rem;
+}
+
+//custom carousel
+%animation-default {
+    opacity: 1 !important;
+    z-index: 3;
+}
+
+@mixin carousel($items, $animation: "default") {
+    .carousel {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        >input[type="radio"] {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            top: 0;
+
+            &:checked {
+
+                ~.carousel__items .carousel__item,
+                ~.carousel__prev>label,
+                ~.carousel__next>label {
+                    opacity: 0;
+                }
+            }
+
+            @for $i from 1 through $items {
+                &:nth-child(#{$i}) {
+                    &:checked {
+                        ~.carousel__items .carousel__item {
+                            @if $animation=="default" {
+                                &:nth-child(#{$i}) {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+
+                        ~.carousel__prev {
+                            >label {
+                                @if $i==1 {
+                                    &:nth-child(#{$items}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+
+                                @else if $i==$items {
+                                    &:nth-child(#{$items - 1}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+
+                                @else {
+                                    &:nth-child(#{$i - 1}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+                            }
+                        }
+
+                        ~.carousel__next {
+                            >label {
+                                @if $i==$items {
+                                    &:nth-child(1) {
+                                        @extend %animation-default;
+                                    }
+                                }
+
+                                @else {
+                                    &:nth-child(#{$i + 1}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+                            }
+                        }
+
+                        ~.carousel__nav {
+                            >label {
+                                &:nth-child(#{$i}) {
+                                    background: #ccc;
+                                    cursor: default;
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__items {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            width: 100%;
+            // all the bigger devices
+            height: 575px;
+
+            @media (max-width: 767.98px) {
+                // landscape mobile device
+                height: 325px;
+            }
+
+            @media (max-width: 575.98px) {
+                // portrait mobile device
+                height: 250px;
+            }
+
+            position: relative;
+        }
+
+        &__item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 2s;
+            -webkit-transition: opacity 2s;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                vertical-align: middle;
+            }
+        }
+
+        &__prev,
+        &__next {
+            >label {
+                border: 3px solid $light;
+                border-radius: 50%;
+                cursor: pointer;
+                display: block;
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                transition: all 0.3s ease;
+                -webkit-transition: all 0.3s ease;
+                opacity: 0;
+                z-index: 2;
+
+                &:hover,
+                &:focus {
+                    opacity: 0.5 !important;
+                }
+
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                }
+
+                &:before {
+                    background: linear-gradient(to top,
+                            #fff 0%,
+                            #fff 10%,
+                            rgba(51, 51, 51, 0) 10%),
+                        linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+                    width: 60%;
+                    height: 60%;
+                    top: 20%;
+                }
+            }
+        }
+
+        &__prev {
+            >label {
+                left: 2%;
+
+                &:before {
+                    left: 35%;
+                    top: 20%;
+                    transform: rotate(135deg);
+                    -webkit-transform: rotate(135deg);
+                }
+            }
+        }
+
+        &__next {
+            >label {
+                right: 2%;
+
+                &:before {
+                    left: 10%;
+                    transform: rotate(315deg);
+                    -webkit-transform: rotate(315deg);
+                }
+            }
+        }
+
+        &__nav {
+            position: absolute;
+            bottom: 3%;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            z-index: 3;
+
+            >label {
+                border: 2px solid $light;
+                display: inline-block;
+                border-radius: 50%;
+                cursor: pointer;
+                margin: 0 0.125%;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* number of images need to be updated */
+@include carousel(5);
+
+// important information section
+.info-section {
+    h2 {
+        color: $primary;
+        padding: 0;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-text {
+        color: $secondary;
+
+        @media (min-width: 1200px) {
+            font-size: larger;
+        }
+    }
+
+    img {
+        width: 85%;
+    }
+}
+
+.is-rounded {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 100rem;
+    float: bottom;
+}
+
+// current projects section
+#current-ventures {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    .main-heading {
+        color: white;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .hr-1 {
+        background-color: white;
+        width: 15%;
+        padding: 1px;
+        border-radius: 1.5px;
+        margin-bottom: 0.25rem;
+    }
+
+    .hr-2 {
+        background-color: white;
+        width: 5%;
+        padding: 1px;
+        border-radius: 1.5px;
+        margin-top: 0.25rem;
+    }
+
+    .current-projects {
+        margin-top: 2rem;
+
+        @media (min-width: 1200px) {
+            font-size: larger;
+        }
+    }
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+
+        @media (min-width: 768px) {
+            margin-top: 0;
+            margin-top: 3rem;
+        }
+    }
+
+    h3 {
+        padding-top: 1.5rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .text {
+        color: $light;
+    }
+}
+
+// past projects section
+#past-projects {
+    margin-bottom: 1.5rem;
+
+    .main-heading {
+        color: $dark;
+        margin-bottom: 1rem;
+        padding-bottom: 0;
+    }
+
+    .hr-1 {
+        background-color: $dark;
+        width: 15%;
+        padding: 1px;
+        border-radius: 1.5px;
+        margin-bottom: 0.25rem;
+    }
+
+    .hr-2 {
+        background-color: $dark;
+        width: 5%;
+        padding: 1px;
+        border-radius: 1.5px;
+        margin-top: 0.25rem;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    .text {
+        color: $primary;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+}
+
+// footer section
+#footer {
+    color: white;
+
+    .col-md {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    a {
+        color: $light;
+    }
+
+    img {
+        padding-bottom: 0.25rem;
+        padding-top: 0.25rem;
+    }
+
+    .end-credits {
+        margin-top: 2.5rem;
+        padding-bottom: 0.25rem;
+        font-weight: lighter;
+        color: whitesmoke;
+
+        div {
+            color: $light;
+            font-size: smaller;
+        }
+    }
+}
