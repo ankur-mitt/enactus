@@ -1,5 +1,5 @@
 function gotoProjects() {
-    document.querySelector('.current-projects').scrollIntoView({
+    document.getElementById('current-ventures').scrollIntoView({
         behavior: 'smooth',
         block: 'center',
         inline: 'start'
