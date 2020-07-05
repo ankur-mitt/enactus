@@ -10221,6 +10221,7 @@ body {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 2rem;
+  box-shadow: 0 4px 8px 0 #142850, 0 6px 20px 0 #142850;
 }
 @media (min-width: 768px) {
   #current-ventures img {
@@ -10262,6 +10263,7 @@ body {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 2rem;
+  box-shadow: 0 4px 8px 0 #dae1e7, 0 6px 20px 0 #dae1e7;
 }
 #past-projects .text {
   color: #27496d;
@@ -10282,6 +10284,9 @@ body {
 }
 #footer a {
   color: #dae1e7;
+}
+#footer i {
+  margin-right: 0.5rem;
 }
 #footer img {
   padding-bottom: 0.25rem;

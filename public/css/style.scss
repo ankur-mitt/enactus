@@ -1,6 +1,5 @@
 // changing default sass variables
-$font-family-base: "IBM Plex Serif",
-serif;
+$font-family-base: "IBM Plex Serif", serif;
 $enable-gradients: true;
 $primary: #27496d;
 $secondary: #00909e;
@@ -343,6 +342,7 @@ body {
         width: 100%;
         border-radius: 0.5rem;
         margin-top: 2rem;
+        box-shadow: 0 4px 8px 0 $dark, 0 6px 20px 0 $dark;
 
         @media (min-width: 768px) {
             margin-top: 0;
@@ -390,6 +390,7 @@ body {
         width: 100%;
         border-radius: 0.5rem;
         margin-top: 2rem;
+        box-shadow: 0 4px 8px 0 $light, 0 6px 20px 0 $light;
     }
 
     .text {
@@ -415,6 +416,10 @@ body {
 
     a {
         color: $light;
+    }
+
+    i {
+        margin-right: 0.5rem;
     }
 
     img {
