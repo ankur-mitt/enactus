@@ -1,0 +1,163 @@
+// changing default sass variables
+$font-family-base: "IBM Plex Serif", serif;
+$enable-gradients: true;
+$primary: #27496d;
+$secondary: #00909e;
+$dark: #142850;
+$light: #dae1e7;
+$navbar-light-color: #dae1e7;
+
+// import default bootstrap.scss
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    /*
+    background-image: url("/public/imgs/about/symphony.png");
+    background-position: bottom;
+    animation: 4s linear 0s infinite bp;
+
+    @keyframes bp {
+        from {
+            background-position:  198px 0;
+        }
+  
+        to {
+            background-position:  0 198px;
+        }
+    }
+    */
+
+    --stripe: #cfd8dc60;
+    --bg: #e1e1e125;
+    background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+                linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+                linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+                linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: var(--stripe);
+
+}
+
+// navbar section
+.navbar {
+    padding-top: 0;
+}
+
+.navbar-brand {
+    padding-top: 0;
+
+    img {
+        filter: brightness(0.95);
+
+        &:hover {
+            filter: brightness(1.15);
+        }
+    }
+}
+
+.nav-link {
+    margin-top: 0.5rem;
+}
+
+// team section
+.team-section-0 {
+
+    img {
+        width: 100%;
+        max-height: 80vh;
+        object-fit: cover;
+    }
+
+    h1 {
+        padding-top: 1rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        color: $dark;
+    }
+    
+    hr {
+        width: 10%;
+        padding: 0;
+        margin-top: 0.25rem;
+        background-color: $dark;
+        border-radius: 50px;
+        border-width: medium;
+    }
+}
+
+.team-section-1 {
+    
+
+    .container {
+        padding: 1rem;
+        background-color: white;
+    }
+
+    .col-md {
+        padding: 2rem;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px 0 $light, 0 6px 20px 0 $light;
+    }
+}
+
+.team-section-2 {
+    .container {
+        padding: 2rem;
+    }
+
+    li {
+        font-size: larger;
+    }
+}
+
+// footer section
+#footer {
+    color: white;
+
+    .col-md {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    a {
+        color: $light;
+    }
+
+    i {
+        margin-right: 0.5rem;
+    }
+
+    img {
+        padding-bottom: 0.25rem;
+        padding-top: 0.25rem;
+    }
+
+    .end-credits {
+        margin-top: 2.5rem;
+        padding-bottom: 0.25rem;
+        font-weight: lighter;
+        color: whitesmoke;
+
+        div {
+            color: $light;
+            font-size: smaller;
+        }
+    }
+}
