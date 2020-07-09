@@ -9983,11 +9983,16 @@ body {
       }
   }
   */
+  /*
   --stripe: #cfd8dc60;
   --bg: #e1e1e125;
-  background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0, linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0, linear-gradient(315deg, var(--bg) 25%, transparent 25%), linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+  background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+              linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+              linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+              linear-gradient(45deg, var(--bg) 25%, transparent 25%);
   background-size: 100px 100px;
   background-color: var(--stripe);
+  */
 }
 
 .navbar {
@@ -10008,18 +10013,18 @@ body {
   margin-top: 0.5rem;
 }
 
-.about-section-0 img {
+.team-section-0 img {
   width: 100%;
   max-height: 80vh;
   object-fit: cover;
 }
-.about-section-0 h1 {
+.team-section-0 h1 {
   padding-top: 1rem;
   padding-bottom: 0;
   margin-bottom: 0;
   color: #142850;
 }
-.about-section-0 hr {
+.team-section-0 hr {
   width: 10%;
   padding: 0;
   margin-top: 0.25rem;
@@ -10028,21 +10033,24 @@ body {
   border-width: medium;
 }
 
-.about-section-1, .about-section-2, .about-section-3 {
-  margin: 0;
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
-  font-size: larger;
-}
-.about-section-1 i, .about-section-1 h3, .about-section-2 i, .about-section-2 h3, .about-section-3 i, .about-section-3 h3 {
-  margin-bottom: 1rem;
-  color: #27496d;
-}
-.about-section-1 .container, .about-section-2 .container, .about-section-3 .container {
+.team-section-1 .container {
+  padding: 1rem;
   background-color: white;
-  padding: 2.5rem;
-  border-radius: 0.2rem;
-  border: 1px solid #142850;
+}
+.team-section-1 .col-md {
+  padding: 2rem;
+}
+.team-section-1 img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px 0 #dae1e7, 0 6px 20px 0 #dae1e7;
+}
+
+.team-section-2 .container {
+  padding: 2rem;
+}
+.team-section-2 li {
+  font-size: larger;
 }
 
 #footer {
@@ -10077,4 +10085,4 @@ body {
   font-size: smaller;
 }
 
-/*# sourceMappingURL=about.css.map */
+/*# sourceMappingURL=strend.css.map */
