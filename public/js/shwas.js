@@ -1,6 +1,6 @@
 console.log('shwas.js');
 
-Chart.defaults.global.defaultFontSize = 15;
+Chart.defaults.global.defaultFontSize = 14;
 
 var delhiPollutionLevels = new Chart(
     document.getElementById('delhi-pollution-levels').getContext('2d'), {
@@ -89,7 +89,7 @@ var cropResidueCycle = new Chart(
     document.getElementById('crop-residue-cycle').getContext('2d'), {
         type: 'pie',
         data: {
-            labels: ['Sold', 'Used as fodder', 'Used as cooking fuel', 'Composted', 'Incorporated in soil', 'Thrown away', 'Burnt open field'],
+            labels: ['Sold', 'Fodder', 'Cooking fuel', 'Composted', 'Incorporated in soil', 'Thrown away', 'Burnt open field'],
             datasets: [{
                 label: '% of Use',
                 data: [2, 7, 2, 5, 1, 1, 82],

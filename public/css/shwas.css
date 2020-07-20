@@ -10038,10 +10038,6 @@ body {
   color: #27496d;
   padding-top: 2rem;
 }
-#project-info-wrapper canvas {
-  padding-top: 1rem;
-  margin-bottom: 0.5rem;
-}
 #project-info-wrapper i {
   margin-right: 1rem;
   margin-top: 1rem;
