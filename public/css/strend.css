@@ -10013,6 +10013,13 @@ body {
   margin-top: 0.5rem;
 }
 
+#project-description-area {
+  font-size: larger;
+}
+#project-description-area h2 {
+  margin-top: 3rem;
+}
+
 .team-section-0 img {
   width: 100%;
   max-height: 80vh;
